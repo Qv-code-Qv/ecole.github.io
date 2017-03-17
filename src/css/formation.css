@@ -1,0 +1,140 @@
+body, html{
+    /*margin: 0;*/
+    padding: 0;
+    background-color: #b3adad;
+}
+/*container principale*/
+#containerp{
+
+  background-color: #ffffff;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 1%;
+  margin-bottom: 7.5%;
+  height: 100%;
+
+
+}
+/*2 eme Conetainer*/
+.container  {
+  background-color: green;
+  margin-left: 11%;
+  margin-right: 11%;
+margin-top:inherit;
+  margin-bottom: 5%;
+  margin-top: 3%;
+
+
+
+}
+a, h2, h3, h4, h5, h6, p, footer{
+    font-family: 'Roboto', sans-serif;
+    color: #4e4e4e;
+    text-decoration: none;
+}
+}
+h1{
+  color: #fff;
+}
+
+.preHeader{
+    height: 45px;
+    line-height: 45px;
+    vertical-align: middle;
+    -moz-box-shadow: 0px 5px 10px 0px #ebebeb;
+    -webkit-box-shadow: 0px 5px 10px 0px #ebebeb;
+    -o-box-shadow: 0px 5px 10px 0px #ebebeb;
+    box-shadow: 0px 5px 10px 0px #ebebeb;
+      transition-duration: 0.2s;
+}
+.linkContainer{
+    float: right;
+    margin-right: 7%;
+
+}
+.preHeader a{
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+    transition-duration: 0.2s;
+}
+.preHeader a:hover{
+    color: #212121;
+}
+
+/* header */
+header{
+    background-color: #fff;
+}
+.header{
+    width: 80%;
+    margin: 0 auto;
+    height: 120px;
+    line-height: 120px;
+}
+.logo{
+    width: 80px;
+    vertical-align: middle;
+}
+.menu{
+    float: right;
+}
+.link{
+    font-size: 17px;
+    font-weight: 300;
+    vertical-align: middle;
+    padding: 20px;
+    transition-duration: 0.2s;
+}
+.link:hover, .link.active{
+    color: #d7002f;
+}
+
+
+
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+.cel
+{
+    border: 1px solid black;
+}
+/*1er tableau*/
+.tab {
+
+   margin: auto;
+
+  background-color: #7da7d9;
+    border:1px ;
+    border-color:#006600;
+    width:31.5%;
+
+
+      text-align: center;
+
+
+}
+/*2eme tableau*/
+.tab2 {
+
+
+  background-color: #cdcdcd;
+    border:1px ;
+    border-color:#006600;
+    width:30%;
+
+
+     /*float: center;*/
+     margin: auto;
+    /* padding-top: 5px;*/
+}
+.formation{
+    margin: auto;
+    background-color: #282828;
+    padding: 20px;
+
+    text-align: center;
+
+
+}

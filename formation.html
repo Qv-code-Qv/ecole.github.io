@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formation</title>
+    <link href="src/css/formation.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,100,400italic,500italic,500,700italic,900,700,900italic,100italic' rel='stylesheet' type='text/css'>
+
+  </head>
+  <body>
+    <header>
+        <div class="preHeader">
+            <div class="linkContainer">
+                <a href="#">Se connecter</a>
+                <span class="seperator">-</span>
+                <a href="#">Deconnexion</a>
+            </div>
+        </div>
+        <div class="header">
+            <img src="src/img/logo.png" alt="Logo" class="logo"/>
+            <nav class="menu">
+                <a class="link" href="#">Accueil</a><a class="link active" href="#">Formation</a><a class="link" href="#">Stage</a><a class="link" href="#">Colle</a><a class="link" href="#">Cursus</a><a class="link" href="#">Aide</a>
+            </nav>
+        </div>
+      </header>
+<!--Contenair Principale -->
+<div id ="containerp">
+
+<!-- 2eme Contenair  -->
+   <div class=" container">
+
+
+      <h2 >Formation</h2>
+      <!--Premier tableau  -->
+      <div class="tab">
+       <table>
+         <tr>
+           <td class="cel">Formation</td>
+           <td class="cel"><a href="#">Modifier</a></td>
+           <td class="cel"><a href="#">Supprimer</a></td>
+           <td class="cel"><a href="#">Semestre</a></td>
+         </tr>
+         <tr>
+           <td class="cel" colspan="4"><a href="#">Ajouter Nouvelle Formation</a></td>
+         </tr>
+       </table>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="tab2">
+
+<!--2eme tableau  -->
+        <table>
+
+    <input type="hidden" name="id_admin" value=1 />
+    <tr align="center">
+    </tr>
+    <tr><td>
+    <label for="eff_max_cm">
+    Effectif max CM
+    </label>
+    </td><td><input type="text" name = "eff_max_cm"/></td></tr>
+    <tr><td>
+    <label for="eff_max_td">
+   	Effectif max TD
+    </label>
+    </td><td><input type="text" name = "eff_max_td"/></td></tr>
+    </tr>
+    <tr><td>
+     <label for="eff_max_tp">
+    Effectif max TP
+    </label>
+    </td><td><input type="text" name = "eff_max_tp" /></td></tr>
+    <tr><td>
+    <label for="cout_horaire_cm">
+    Coût horaire CM
+    </label>
+    </td>
+    <td >
+    <input type="text" name = "cout_horaire_cm" />
+    </td></tr>
+    <tr>
+    <td>
+    <label for="cout_horaire_td">
+    Coût horaire TD
+    </label></td>
+    <td>
+    <input type="text" name = "cout_horaire_td"/>
+    </td>
+    </tr>
+    <tr  >
+    <td>
+    <label for="cout_horaire_tp">
+     Coût horaire TP
+    </label></td>
+    <td>
+    <input type="text" name = "cout_horaire_tp"/>
+    </td>
+    </tr>
+    <tr class"buttom"><td>
+ <input type = "submit" name="val_form_const" value = "Valider" />
+    </td></tr>
+
+</form>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+  <footer>
+  <div id ="copyright">
+
+  </div>
+
+
+  </footer>
+
+    </body>
+  </html>
