@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS univ;
 
 CREATE DATABASE IF NOT EXISTS univ;
 USE univ;
+ALTER DATABASE univ charset=utf8;
 # -----------------------------------------------------------------------------
 #       TABLE : PROF
 # -----------------------------------------------------------------------------
