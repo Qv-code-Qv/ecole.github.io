@@ -3,6 +3,7 @@
 $pass_hache = sha1($_POST['pass']);
 
 // Vérification des identifiants
+$req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
 $req->execute(array(
     'pseudo' => $pseudo,
     'pass' => $pass_hache));
