@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Formation</title>
-    <link href="../css/formation/css" rel="stylesheet" type="text/css">
-    <link href="../css/formation/formation.css" rel="stylesheet" type="text/css">
+    <link href="../src/css/formation/css" rel="stylesheet" type="text/css">
+    <link href="../src/css/formation/formation.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -21,9 +21,9 @@
             </div>
         </div>
         <div class="header">
-            <img src="../img/Formation_files/logo.png" alt="Logo" class="logo">
+            <img src="../src/img/Formation_files/logo.png" alt="Logo" class="logo">
             <nav class="menu">
-                <a class="link" href="index.html">Accueil</a>
+                <a class="link" href="../index.html">Accueil</a>
                 <a class="link active" href="../html/formation.html">Formation</a>
                 <a class="link" href="file:///C:/wamp64/www/SiteMemoire/form.html#">Stage</a>
                 <a class="link" href="file:///C:/wamp64/www/SiteMemoire/form.html#">Colle</a>
@@ -39,41 +39,35 @@
       <a href="file:///C:/wamp64/www/SiteMemoire/listall_formation_admin.php?id_admin=1">FORMATION</a>
     </li>
 
+    <div id="fond_blanc">
+
 
     <div id="right">
         <div id="tableau1">
             <!--<center><h3><table border='3' bgcolor='#666600' bordercolor='#006600' >-->
-
-            <div class="tr1">
-
-            </div>
             <table>
-
-
-                <tbody>
-                    <tr></tr>
-                </tbody>
                 <caption>
-                    <h3>Liste formation</h3></caption>
-                <tbody>
-                    <tr align="center">
-                        <td> Nom formation </td>
-                        <td> Supprimer </td>
-                        <td> Modifier </td>
-                        <td> Afficher Semestre </td>
-                        <td> Donner Droit </td>
+                    <h3>Liste formation</h3>
+                </caption>
+                <tbody >
+                    <tr align="center" >
+                        <td id="cellule"> Nom formation </td>
+                        <td id="cellule"> Supprimer </td>
+                        <td id="cellule"> Modifier </td>
+                        <td id="cellule"> Afficher Semestre </td>
+                        <td id="cellule"> Donner Droit </td>
                     </tr>
                     <tr align="center">
                         <td>L2</td>
                         <td>
                             <a href="file:///C:/wamp64/www/SiteMemoire/delete_formation_admin.php?id_formation=1462813362"
                             onclick="if(!confirm(&quot;voulez supprimer cette formation : 3 ?&quot;))return false;">
-                            <img src="../img/Formation_files//drop.jpg"></a>
+                            <img src="../src/img/Formation_files//drop.jpg"></a>
                         </td>
                         <td>
                             <a href="file:///C:/wamp64/www/SiteMemoire/modification_formation.php?id_formation=1462813362"
                             onclick="if(!confirm(&quot;voulez modiffier cette formation : 3 ?&quot;))return false;">
-                            <img src="../img/Formation_files//brop.png"></a>
+                            <img src="../src/img/Formation_files//brop.png"></a>
                         </td>
                         <td><a href="file:///C:/wamp64/www/Semestre/listall_semestre_formation.php?id_formation=1462813362">Semestre</a></td>
                         <td><a href="file:///C:/wamp64/www/SiteMemoire/donner_droit_formation.php?id_=1462813362">Donner Droit</a></td>
@@ -83,12 +77,12 @@
                         <td>
                             <a href="file:///C:/wamp64/www/SiteMemoire/delete_formation_admin.php?id_formation=1489500837"
                             onclick="if(!confirm(&quot;voulez supprimer cette formation : 8 ?&quot;))return false;">
-                            <img src="../img/Formation_files/drop.jpg"></a>
+                            <img src="../src/img/Formation_files/drop.jpg"></a>
                         </td>
                         <td>
                             <a href="file:///C:/wamp64/www/SiteMemoire/modification_formation.php?id_formation=1489500837"
                             onclick="if(!confirm(&quot;voulez modiffier cette formation : 8 ?&quot;))return false;">
-                            <img src="../img/Formation_files/brop.png"></a>
+                            <img src="../src/img/Formation_files/brop.png"></a>
                         </td>
                         <td><a href="file:///C:/wamp64/www/Semestre/listall_semestre_formation.php?id_formation=1489500837">Semestre</a></td>
                         <td><a href="file:///C:/wamp64/www/SiteMemoire/donner_droit_formation.php?id_=1489500837">Donner Droit</a></td>
@@ -101,11 +95,9 @@
                 </tbody>
             </table><br>
         </div>
-        <br>le Nombre de formation est 2.0:
-        <br>
+      le Nombre de formation est 2.0:
 
         <div class="tab2">
-
             <!--2eme tableau  -->
             <h4>Calculer le cout d' une formation</h4>
             <table>
@@ -178,8 +170,7 @@ Coût horaire TP
             </table>
         </div>
     </div>
-
-
+</div>
     <footer>
         <div id="copyright">
             Copyrights 2017, Tous droits réservés.
