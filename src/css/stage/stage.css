@@ -105,7 +105,6 @@ body, html{
    background-color: #fff;
    margin-left: 8%;
    margin-right: 8%;
-
    margin-bottom: 1%;
    margin-top: 1%;
 
@@ -117,7 +116,7 @@ body, html{
     background-color: #9a9697;
     margin-left: 5%;
     margin-right: 5%;
-  margin-top:inherit;
+    margin-top:inherit;
     margin-bottom: 1%;
     margin-top: 1%;
   }
@@ -199,25 +198,35 @@ table
     border: 1px solid black;
 }
 
+/*td en général (1er et 2ème tableau)*/
+td{
+  border-width:1px;
+  border-style:solid;
+  border-color: black;
+}
+
 /*1er Tableau ( fond du tableau)*/
 #tableau1 {
 margin: auto;
 border-width:1px;
 border-style:solid;
-border-color:black;
 width:70%;
-background-color: red;
+background-color: #d1bedb;
 }
 /*Bordure 1er tableau*/
-#tableau1 , td {
+#tableau1 {
  border-width:1px;
  border-style:solid;
- border-color:#6e6b6b;
+ margin-bottom: 20px;
+ border-color:red;
  }
+
+
 /*Cellule 1er tableau*/
  #cellule{
    width: 10%;
    height: auto;
+   border-color: black;
  }
 
 /*2eme tableau*/
@@ -225,22 +234,31 @@ background-color: red;
 margin: auto;
 border-width:1px;
 border-style:solid;
-border-color:black;
 width:70%;
-background-color: red;
+background-color: #adc4d3;
+
+
 }
 
+
 /*Bordure 2ème tableau*/
-#tableau2 , td {
+#tableau2 {
  border-width:1px;
  border-style:solid;
- border-color:#6e6b6b;
+ border-color:yellow;
+
+
+ }
+
+ #tdTab2{
+   border-color: black;
  }
 
 /*Cellule 2ème tableau*/
  #cellule2{
    width: 10%;
    height: auto;
+   border-color:black;
  }
 
 
