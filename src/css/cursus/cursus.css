@@ -131,6 +131,8 @@ border-color:black;
 width:70%;
 background-color: white;
 }
+
+/**/
 /*Bordure 1er tableau*/
 #tableau1 , td {
  border-width:1px;
