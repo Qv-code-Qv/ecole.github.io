@@ -1,16 +1,34 @@
-/* -------------------
-----------------------
-       GENERAL
-----------------------
-------------------- */
-
 body, html{
-    margin: 0;
+    /*margin: 0;*/
     padding: 0;
-    background-color: #e1e1e1;
+    background-color: #b3adad;
 }
+/*div fond blanc*/
+ #fond_blanc{
+   padding: 1%;
+   background-color: #fff;
+   margin-left: 8%;
+   margin-right: 8%;
 
-a, h2, h3, h4, h5, h6, span, p, footer{
+   margin-bottom: 1%;
+   margin-top: 1%;
+
+ }
+
+ /*Fond gris claire*/
+  #right {
+    padding-top: 2%;
+    background-color: #9a9697;
+    margin-left: 5%;
+    margin-right: 5%;
+  margin-top:inherit;
+    margin-bottom: 1%;
+    margin-top: 1%;
+  }
+
+
+/*lien et Titre */
+a, h2, h3, h4, h5, h6, p, footer{
     font-family: 'Roboto', sans-serif;
     color: #4e4e4e;
     text-decoration: none;
@@ -19,27 +37,7 @@ a, h2, h3, h4, h5, h6, span, p, footer{
 h1{
   color: #fff;
 }
-h3, h4{
-    color: #1b1928;
-}
-p{
-    line-height: 2;
-    letter-spacing: 0.2px;
-    font-weight: 300;
-}
-.center{
-    text-align: center;
-}
-.clear{
-    clear: both;
-}
-
-/* -------------------
-----------------------
-       HEADER
-----------------------
-------------------- */
-/* preHeader */
+/*Connexion Deconnexion*/
 .preHeader{
     height: 45px;
     line-height: 45px;
@@ -50,6 +48,7 @@ p{
     box-shadow: 0px 5px 10px 0px #ebebeb;
       transition-duration: 0.2s;
 }
+
 .linkContainer{
     float: right;
     margin-right: 7%;
@@ -82,6 +81,13 @@ header{
 .menu{
     float: right;
 }
+.selection{
+  padding-left: 300px;
+}
+.dropdown{
+  float: right;
+}
+/*Lien Menu*/
 .link{
     font-size: 17px;
     font-weight: 300;
@@ -93,9 +99,78 @@ header{
     color: #d7002f;
 }
 
-footer {
-    text-align: center;
-    font-weight: 400;
-    color: #9b9b9b;
-    margin-bottom: 25px;
+.formulaire
+{
+  background-color: #000000;
 }
+.selection {
+float: left;
+padding-right: -10px;
+}
+.textarea {
+float: left;
+}
+.dropdown {
+float: left;
+}
+/*Tableau*/
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+.cel
+{
+    border: 1px solid black;
+}
+/*1er Tableau ( fond du tableau)*/
+#tableau1 {
+margin: auto;
+border-width:1px;
+border-style:solid;
+border-color:black;
+width:70%;
+background-color: white;
+}
+/*Bordure 1er tableau*/
+#tableau1 , td {
+ border-width:1px;
+ border-style:solid;
+ border-color:#6e6b6b;
+ }
+/*Cellule 1er tableau*/
+ #cellule{
+   width: 10%;
+   height: auto;
+ }
+
+
+/*2eme tableau*/
+.tab2 {
+
+
+  background-color: #cdcdcd;
+    border:1px ;
+    border-color:#006600;
+    width:30%;
+
+
+     /*float: center;*/
+     margin: auto;
+    /* padding-top: 5px;*/
+}
+
+ h3 {
+   background-color: #7da7d9 ;
+
+ }
+ h4 {
+   text-align: center;
+   background-color: #7da7d9;
+
+ }
+ footer {
+     text-align: center;
+     font-weight: 400;
+     color: #9b9b9b;
+     margin-bottom: 25px;
+ }
