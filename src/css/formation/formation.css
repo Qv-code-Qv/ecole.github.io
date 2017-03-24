@@ -1,13 +1,13 @@
  html, body{
     /*margin: 0;*/
     padding: 0;
-    background-color:#e1e1e1;
+    background-color:red;
 }
 /*div fond blanc*/
  #fond_blanc{
    padding: 1%;
-   background-color: #fff;
    margin-left: 8%;
+   background-color: red;
    margin-right: 8%;
 
    margin-bottom: 1%;
@@ -18,7 +18,7 @@
  /*Fond gris claire*/
   #right {
     padding-top: 2%;
-    background-color: #9a9697;
+    background-color: red;
     margin-left: 5%;
     margin-right: 5%;
   margin-top:inherit;
