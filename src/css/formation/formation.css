@@ -1,7 +1,7 @@
-body, html{
+ html, body{
     /*margin: 0;*/
     padding: 0;
-    background-color: #b3adad;
+    background-color:#e1e1e1;
 }
 /*div fond blanc*/
  #fond_blanc{
