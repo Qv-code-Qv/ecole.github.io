@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS univ;
 USE univ;
 ALTER DATABASE univ charset=utf8;
 # -----------------------------------------------------------------------------
-#       TABLE : PROF
+#       TABLE : PROF.
 # -----------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS PROF

@@ -3,21 +3,35 @@
 $pass_hache = sha1($_POST['pass']);
 
 // Vérification des identifiants
-$req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
-$req->execute(array(
+
+$dbh1 = mysql_connect($hostname, $username, $password);
+$dbh2 = mysql_connect($hostname, $username, $password, true);
+
+
+$req1 = $bdd1 ->prepare('SELECT id FROM prof WHERE nom = :nom AND pass = :pass');
+$req1->execute(array(
     'pseudo' => $pseudo,
     'pass' => $pass_hache));
 
 $resultat = $req->fetch();
 
-if (!$resultat)
+$req2 = $bdd2 ->prepare('SELECT id FROM prof WHERE nom = :nom AND pass = :pass');
+$req2->execute(array(
+    'pseudo' => $pseudo,
+    'pass' => $pass_hache));
+
+$resultat = $req->fetch();
+
+if ($resultat1 OR $resultat2)
 {
-    echo 'Mauvais identifiant ou mot de passe !';
+
+  session_start();
+  $_SESSION['id'] = $resultat['id'];
+  $_SESSION['pseudo'] = $pseudo;
+  echo 'Vous êtes connecté !';
+
 }
 else
 {
-    session_start();
-    $_SESSION['id'] = $resultat['id'];
-    $_SESSION['pseudo'] = $pseudo;
-    echo 'Vous êtes connecté !';
+    echo 'Mauvais identifiant ou mot de passe !';
 }
