@@ -29,6 +29,12 @@ background-color: #797B7B;
     margin-top: 1%;
   }
 
+  #para1{
+padding-top: 15px;
+padding-left: 25px;
+
+  }
+
 
 /*lien et Titre */
 a, h2, h3, h4, h5, h6, p, footer{
