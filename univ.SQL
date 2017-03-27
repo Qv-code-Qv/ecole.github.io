@@ -1,491 +1,333 @@
-DROP DATABASE IF EXISTS univ;
+DROP DATABASE univ;
 
-CREATE DATABASE IF NOT EXISTS univ;
+CREATE DATABASE univ;
+
 USE univ;
-ALTER DATABASE univ charset=utf8;
-# -----------------------------------------------------------------------------
-#       TABLE : PROF.
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS PROF
- (
-   IDP int(11) AUTO_INCREMENT NOT NULL,
-   NOMP VARCHAR(32),
-   PRENOMP VARCHAR(32),
-   PRIXP  float(0.5),
-   PRIMARY KEY (IDP)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : MATIERE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS MATIERE
- (
-   IDMAT int(11) AUTO_INCREMENT NOT NULL,
-   NOMMAT VARCHAR(32),
-   OBJPRINCIPALMAT VARCHAR(32),
-   EFFECTIFMAT int(32) NULL,
-   PRIMARY KEY (IDMAT)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : UNITEDENSEIGNEMENT
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS UNITEDENSEIGNEMENT
- (
-   IDUE int(11) AUTO_INCREMENT NOT NULL,
-   NOMUE VARCHAR(32),
-   PRIMARY KEY (IDUE)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : STAGE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS STAGE
- (
-   IDSTAGE int(11) AUTO_INCREMENT NOT NULL,
-   PRIMARY KEY (IDSTAGE)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : ELEVE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS ELEVE
- (
-   IDE int(11) AUTO_INCREMENT NOT NULL,
-   NOME VARCHAR(32),
-   PRENOME VARCHAR(32),
-   DATENAISSEE date,
-   FORMATIONE VARCHAR(32),
-   PRIMARY KEY (IDE)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : SEMESTRE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS SEMESTRE
- (
-   IDSEMESTRE int(11) AUTO_INCREMENT NOT NULL,
-   NOMSEMESTRE VARCHAR(32),
-   PRIMARY KEY (IDSEMESTRE)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : FORMATION
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS FORMATION
- (
-   IDFOR int(11) AUTO_INCREMENT NOT NULL,
-   NOMFOR VARCHAR(32),
-   PRIMARY KEY (IDFOR)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : NOTE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS NOTE
- (
-   IDN int(11) AUTO_INCREMENT NOT NULL,
-   VALEURN VARCHAR(32),
-   PRIMARY KEY (IDN)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : ENTREPRISE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS ENTREPRISE
- (
-   IDENT int(11) AUTO_INCREMENT NOT NULL,
-   NOMENT VARCHAR(32),
-   RESPONSABLEENT VARCHAR(32),
-   NUMENT int(32) NOT NULL,
-   ADRESSENT VARCHAR(32) NULL,
-   PRIMARY KEY (IDENT)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : SALLE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS SALLE
- (
-   IDS int(11) AUTO_INCREMENT NOT NULL,
-   NOMS VARCHAR(32),
-   LIBRES VARCHAR(32),
-   PRIMARY KEY (IDS)
- );
-
-# -----------------------------------------------------------------------------
-#       TABLE : RESERVE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS RESERVE
- (
-   IDP int(11) NOT NULL,
-   IDS int(11) NOT NULL,
-   PRIMARY KEY (IDP,IDS)
- );
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE RESERVE
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_RESERVE_PROF
-     ON RESERVE (IDP ASC);
-
-CREATE  INDEX I_FK_RESERVE_SALLE
-     ON RESERVE (IDS ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : GERER
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS GERER
- (
-   IDP int(11) NOT NULL,
-   IDFOR int(11) NOT NULL
-   , PRIMARY KEY (IDP,IDFOR)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE GERER
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_GERER_PROF
-     ON GERER (IDP ASC);
-
-CREATE  INDEX I_FK_GERER_FORMATION
-     ON GERER (IDFOR ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : A2
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS A2
- (
-   IDFOR int(11) NOT NULL,
-   IDSEMESTRE int(11) NOT NULL
-   , PRIMARY KEY (IDFOR,IDSEMESTRE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE A2
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_A2_FORMATION
-     ON A2 (IDFOR ASC);
-
-CREATE  INDEX I_FK_A2_SEMESTRE
-     ON A2 (IDSEMESTRE ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : DONNER
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS DONNER
- (
-   IDSEMESTRE int(11) NOT NULL  ,
-   IDUE int(11) NOT NULL
-   , PRIMARY KEY (IDSEMESTRE,IDUE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE DONNER
-# -----------------------------------------------------------------------------
 
-
-CREATE  INDEX I_FK_DONNER_SEMESTRE
-     ON DONNER (IDSEMESTRE ASC);
-
-CREATE  INDEX I_FK_DONNER_UNITEDENSEIGNEMENT
-     ON DONNER (IDUE ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : CONTENIR
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS CONTENIR
- (
-   IDUE int(11) NOT NULL  ,
-   IDMAT int(11) NOT NULL
-   , PRIMARY KEY (IDUE,IDMAT)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE CONTENIR
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_CONTENIR_UNITEDENSEIGNEMENT
-     ON CONTENIR (IDUE ASC);
-
-CREATE  INDEX I_FK_CONTENIR_MATIERE
-     ON CONTENIR (IDMAT ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : GERE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS GERE
- (
-   IDP int(11) NOT NULL ,
-   IDMAT int(11) NOT NULL
-   , PRIMARY KEY (IDP,IDMAT)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE GERE
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_GERE_PROF
-     ON GERE (IDP ASC);
-
-CREATE  INDEX I_FK_GERE_MATIERE
-     ON GERE (IDMAT ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : RESPONSABLE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS RESPONSABLE
- (
-   IDP int(11) NOT NULL  ,
-   IDSTAGE int(11) NOT NULL
-   , PRIMARY KEY (IDP,IDSTAGE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE RESPONSABLE
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_RESPONSABLE_PROF
-     ON RESPONSABLE (IDP ASC);
-
-CREATE  INDEX I_FK_RESPONSABLE_STAGE
-     ON RESPONSABLE (IDSTAGE ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : EN
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS EN
- (
-   IDENT int(11) NOT NULL,
-   IDSTAGE int(11) NOT NULL
-   , PRIMARY KEY (IDENT,IDSTAGE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE EN
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_EN_ENTREPRISE
-     ON EN (IDENT ASC);
-
-CREATE  INDEX I_FK_EN_STAGE
-     ON EN (IDSTAGE ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : FAIT
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS FAIT
- (
-   IDE int(11) NOT NULL,
-   IDSTAGE int(11) NOT NULL
-   , PRIMARY KEY (IDE,IDSTAGE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE FAIT
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_FAIT_ELEVE
-     ON FAIT (IDE ASC);
-
-CREATE  INDEX I_FK_FAIT_STAGE
-     ON FAIT (IDSTAGE ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : A
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS A
- (
-   IDE int(11) NOT NULL,
-   IDN int(11) NOT NULL
-   , PRIMARY KEY (IDE,IDN)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE A
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_A_ELEVE
-     ON A (IDE ASC);
-
-CREATE  INDEX I_FK_A_NOTE
-     ON A (IDN ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : DONNE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS DONNE
- (
-   IDP int(11) NOT NULL,
-   IDN int(11) NOT NULL
-   , PRIMARY KEY (IDP,IDN)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE DONNE
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_DONNE_PROF
-     ON DONNE (IDP ASC);
-
-CREATE  INDEX I_FK_DONNE_NOTE
-     ON DONNE (IDN ASC);
-
-
-# -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
-# -----------------------------------------------------------------------------
-
-
-ALTER TABLE RESERVE
-  ADD FOREIGN KEY FK_RESERVE_PROF (IDP)
-      REFERENCES PROF (IDP) ;
-
-
-ALTER TABLE RESERVE
-  ADD FOREIGN KEY FK_RESERVE_SALLE (IDS)
-      REFERENCES SALLE (IDS) ;
-
-
-ALTER TABLE GERER
-  ADD FOREIGN KEY FK_GERER_PROF (IDP)
-      REFERENCES PROF (IDP) ;
-
-
-ALTER TABLE GERER
-  ADD FOREIGN KEY FK_GERER_FORMATION (IDFOR)
-      REFERENCES FORMATION (IDFOR) ;
-
-
-ALTER TABLE A2
-  ADD FOREIGN KEY FK_A2_FORMATION (IDFOR)
-      REFERENCES FORMATION (IDFOR) ;
-
-
-ALTER TABLE A2
-  ADD FOREIGN KEY FK_A2_SEMESTRE (IDSEMESTRE)
-      REFERENCES SEMESTRE (IDSEMESTRE) ;
-
-
-ALTER TABLE DONNER
-  ADD FOREIGN KEY FK_DONNER_SEMESTRE (IDSEMESTRE)
-      REFERENCES SEMESTRE (IDSEMESTRE) ;
-
-
-ALTER TABLE DONNER
-  ADD FOREIGN KEY FK_DONNER_UNITEDENSEIGNEMENT (IDUE)
-      REFERENCES UNITEDENSEIGNEMENT (IDUE) ;
-
-
-ALTER TABLE CONTENIR
-  ADD FOREIGN KEY FK_CONTENIR_UNITEDENSEIGNEMENT (IDUE)
-      REFERENCES UNITEDENSEIGNEMENT (IDUE) ;
-
-
-ALTER TABLE CONTENIR
-  ADD FOREIGN KEY FK_CONTENIR_MATIERE (IDMAT)
-      REFERENCES MATIERE (IDMAT) ;
-
-
-ALTER TABLE GERE
-  ADD FOREIGN KEY FK_GERE_PROF (IDP)
-      REFERENCES PROF (IDP) ;
-
-
-ALTER TABLE GERE
-  ADD FOREIGN KEY FK_GERE_MATIERE (IDMAT)
-      REFERENCES MATIERE (IDMAT) ;
-
-
-ALTER TABLE RESPONSABLE
-  ADD FOREIGN KEY FK_RESPONSABLE_PROF (IDP)
-      REFERENCES PROF (IDP) ;
-
-
-ALTER TABLE RESPONSABLE
-  ADD FOREIGN KEY FK_RESPONSABLE_STAGE (IDSTAGE)
-      REFERENCES STAGE (IDSTAGE) ;
-
-
-ALTER TABLE EN
-  ADD FOREIGN KEY FK_EN_ENTREPRISE (IDENT)
-      REFERENCES ENTREPRISE (IDENT) ;
-
-
-ALTER TABLE EN
-  ADD FOREIGN KEY FK_EN_STAGE (IDSTAGE)
-      REFERENCES STAGE (IDSTAGE) ;
-
-
-ALTER TABLE FAIT
-  ADD FOREIGN KEY FK_FAIT_ELEVE (IDE)
-      REFERENCES ELEVE (IDE) ;
-
-
-ALTER TABLE FAIT
-  ADD FOREIGN KEY FK_FAIT_STAGE (IDSTAGE)
-      REFERENCES STAGE (IDSTAGE) ;
-
-
-ALTER TABLE A
-  ADD FOREIGN KEY FK_A_ELEVE (IDE)
-      REFERENCES ELEVE (IDE) ;
-
-
-ALTER TABLE A
-  ADD FOREIGN KEY FK_A_NOTE (IDN)
-      REFERENCES NOTE (IDN) ;
-
-
-ALTER TABLE DONNE
-  ADD FOREIGN KEY FK_DONNE_PROF (IDP)
-      REFERENCES PROF (IDP) ;
-
-
-ALTER TABLE DONNE
-  ADD FOREIGN KEY FK_DONNE_NOTE (IDN)
-      REFERENCES NOTE (IDN) ;
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: formation
+#------------------------------------------------------------
+
+CREATE TABLE formation(
+        id_formation  int (11) Auto_increment  NOT NULL ,
+        nom_formation Varchar (25) ,
+        id_prof       Int ,
+        PRIMARY KEY (id_formation ) ,
+        INDEX (id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Professeur
+#------------------------------------------------------------
+
+CREATE TABLE Professeur(
+        nom_prof    Varchar (25) ,
+        id_prof     int (11) Auto_increment  NOT NULL ,
+        nom_form    Varchar (25) ,
+        prenom_prof Varchar (25) ,
+        PRIMARY KEY (id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Semestre
+#------------------------------------------------------------
+
+CREATE TABLE Semestre(
+        id_semestre  int (11) Auto_increment  NOT NULL ,
+        nom_semestre Varchar (25) ,
+        id_formation Int ,
+        PRIMARY KEY (id_semestre ) ,
+        INDEX (id_formation )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Matiere
+#------------------------------------------------------------
+
+CREATE TABLE Matiere(
+        id_matiere     int (11) Auto_increment  NOT NULL ,
+        nom_matiere    Varchar (25) ,
+        credit_matiere Int ,
+        horaire_cm     Int ,
+        horaire_td     Int ,
+        horaire_tp     Int ,
+        id_ue          Int ,
+        id_prof        Int ,
+        PRIMARY KEY (id_matiere ) ,
+        INDEX (id_ue ,id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: stage
+#------------------------------------------------------------
+
+CREATE TABLE stage(
+        id_stage       int (11) Auto_increment  NOT NULL ,
+        id_prof        Int ,
+        id_eleve       Int ,
+        id_entreprise  Int ,
+        duree          Varchar (25) ,
+        id_eleve_Eleve Int ,
+        PRIMARY KEY (id_stage ) ,
+        INDEX (id_prof ,id_eleve ,id_entreprise )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Entreprise
+#------------------------------------------------------------
+
+CREATE TABLE Entreprise(
+        id_entreprise       int (11) Auto_increment  NOT NULL ,
+        nom_entreprise      Varchar (25) ,
+        tel_entrepirise     Varchar (25) ,
+        addresse_entreprise Varchar (25) ,
+        nom_responsable     Varchar (25) ,
+        PRIMARY KEY (id_entreprise )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: note
+#------------------------------------------------------------
+
+CREATE TABLE note(
+        id_note     int (11) Auto_increment  NOT NULL ,
+        valeur_note Float ,
+        id_prof     Int ,
+        id_eleve    Int ,
+        PRIMARY KEY (id_note ) ,
+        INDEX (id_prof ,id_eleve )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Salle
+#------------------------------------------------------------
+
+CREATE TABLE Salle(
+        id_salle   int (11) Auto_increment  NOT NULL ,
+        disponible Bool ,
+        nom_salle  Varchar (25) ,
+        id_prof    Int ,
+        PRIMARY KEY (id_salle ) ,
+        INDEX (id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Eleve
+#------------------------------------------------------------
+
+CREATE TABLE Eleve(
+        id_eleve     int (11) Auto_increment  NOT NULL ,
+        nom_eleve    Varchar (25) ,
+        prenom_eleve Varchar (25) ,
+        date_naisseE Date ,
+        date_debut   Date ,
+        date_fin     Date ,
+        id_ue        Int ,
+        id_formation Int ,
+        id_note      Int ,
+        PRIMARY KEY (id_eleve ) ,
+        INDEX (id_ue )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: UE
+#------------------------------------------------------------
+
+CREATE TABLE UE(
+        id_ue       int (11) Auto_increment  NOT NULL ,
+        nom_ue      Varchar (25) ,
+        id_semestre Int ,
+        PRIMARY KEY (id_ue ) ,
+        INDEX (id_semestre )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Constantes
+#------------------------------------------------------------
+
+CREATE TABLE Constantes(
+        id_constante    int (11) Auto_increment  NOT NULL ,
+        id_prof         Int ,
+        effectif_max_cm Int ,
+        effectif_max_td Int ,
+        effectif_max_tp Int ,
+        cout_horaire_cm Int ,
+        cout_horaire_td Int ,
+        cout_horaire_tp Int ,
+        PRIMARY KEY (id_constante ) ,
+        INDEX (id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: responsable de
+#------------------------------------------------------------
+
+CREATE TABLE responsable_de(
+        id_prof      Int NOT NULL ,
+        id_formation Int NOT NULL ,
+        PRIMARY KEY (id_prof ,id_formation )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: compos�_de
+#------------------------------------------------------------
+
+CREATE TABLE compose_de(
+        id_formation Int NOT NULL ,
+        id_semestre  Int NOT NULL ,
+        PRIMARY KEY (id_formation ,id_semestre )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: poss�de
+#------------------------------------------------------------
+
+CREATE TABLE possede(
+        id_semestre Int NOT NULL ,
+        id_ue       Int NOT NULL ,
+        PRIMARY KEY (id_semestre ,id_ue )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: poss�de2
+#------------------------------------------------------------
+
+CREATE TABLE possede2(
+        id_ue      Int NOT NULL ,
+        id_matiere Int NOT NULL ,
+        PRIMARY KEY (id_ue ,id_matiere )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: offre
+#------------------------------------------------------------
+
+CREATE TABLE offre(
+        id_stage      Int NOT NULL ,
+        id_entreprise Int NOT NULL ,
+        PRIMARY KEY (id_stage ,id_entreprise )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: reserve
+#------------------------------------------------------------
+
+CREATE TABLE reserve(
+        id_prof  Int NOT NULL ,
+        id_salle Int NOT NULL ,
+        PRIMARY KEY (id_prof ,id_salle )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: suit
+#------------------------------------------------------------
+
+CREATE TABLE suit(
+        id_formation Int NOT NULL ,
+        id_eleve     Int NOT NULL ,
+        PRIMARY KEY (id_formation ,id_eleve )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: �tudie
+#------------------------------------------------------------
+
+CREATE TABLE etudie(
+        id_eleve   Int NOT NULL ,
+        id_matiere Int NOT NULL ,
+        PRIMARY KEY (id_eleve ,id_matiere )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: supervise
+#------------------------------------------------------------
+
+CREATE TABLE supervise(
+        id_prof  Int NOT NULL ,
+        id_stage Int NOT NULL ,
+        PRIMARY KEY (id_prof ,id_stage )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: enseigne
+#------------------------------------------------------------
+
+CREATE TABLE enseigne(
+        id_prof    Int NOT NULL ,
+        id_matiere Int NOT NULL ,
+        PRIMARY KEY (id_prof ,id_matiere )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: donne
+#------------------------------------------------------------
+
+CREATE TABLE donne(
+        id_note Int NOT NULL ,
+        id_prof Int NOT NULL ,
+        PRIMARY KEY (id_note ,id_prof )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: calcule
+#------------------------------------------------------------
+
+CREATE TABLE calcule(
+        id_prof      Int NOT NULL ,
+        id_constante Int NOT NULL ,
+        PRIMARY KEY (id_prof ,id_constante )
+)ENGINE=InnoDB;
+
+ALTER TABLE stage ADD CONSTRAINT FK_stage_id_eleve_Eleve FOREIGN KEY (id_eleve_Eleve) REFERENCES Eleve(id_eleve);
+ALTER TABLE Eleve ADD CONSTRAINT FK_Eleve_id_note FOREIGN KEY (id_note) REFERENCES note(id_note);
+ALTER TABLE responsable_de ADD CONSTRAINT FK_responsable_de_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE responsable_de ADD CONSTRAINT FK_responsable_de_id_formation FOREIGN KEY (id_formation) REFERENCES formation(id_formation);
+ALTER TABLE compose_de ADD CONSTRAINT FK_compose_de_id_formation FOREIGN KEY (id_formation) REFERENCES formation(id_formation);
+ALTER TABLE compose_de ADD CONSTRAINT FK_compose_de_id_semestre FOREIGN KEY (id_semestre) REFERENCES Semestre(id_semestre);
+ALTER TABLE possede ADD CONSTRAINT FK_possede_id_semestre FOREIGN KEY (id_semestre) REFERENCES Semestre(id_semestre);
+ALTER TABLE possede ADD CONSTRAINT FK_possede_id_ue FOREIGN KEY (id_ue) REFERENCES UE(id_ue);
+ALTER TABLE possede2 ADD CONSTRAINT FK_possede2_id_ue FOREIGN KEY (id_ue) REFERENCES UE(id_ue);
+ALTER TABLE possede2 ADD CONSTRAINT FK_possede2_id_matiere FOREIGN KEY (id_matiere) REFERENCES Matiere(id_matiere);
+ALTER TABLE offre ADD CONSTRAINT FK_offre_id_stage FOREIGN KEY (id_stage) REFERENCES stage(id_stage);
+ALTER TABLE offre ADD CONSTRAINT FK_offre_id_entreprise FOREIGN KEY (id_entreprise) REFERENCES Entreprise(id_entreprise);
+ALTER TABLE reserve ADD CONSTRAINT FK_reserve_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE reserve ADD CONSTRAINT FK_reserve_id_salle FOREIGN KEY (id_salle) REFERENCES Salle(id_salle);
+ALTER TABLE suit ADD CONSTRAINT FK_suit_id_formation FOREIGN KEY (id_formation) REFERENCES formation(id_formation);
+ALTER TABLE suit ADD CONSTRAINT FK_suit_id_eleve FOREIGN KEY (id_eleve) REFERENCES Eleve(id_eleve);
+ALTER TABLE etudie ADD CONSTRAINT FK_etudie_id_eleve FOREIGN KEY (id_eleve) REFERENCES Eleve(id_eleve);
+ALTER TABLE etudie ADD CONSTRAINT FK_etudie_id_matiere FOREIGN KEY (id_matiere) REFERENCES Matiere(id_matiere);
+ALTER TABLE supervise ADD CONSTRAINT FK_supervise_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE supervise ADD CONSTRAINT FK_supervise_id_stage FOREIGN KEY (id_stage) REFERENCES stage(id_stage);
+ALTER TABLE enseigne ADD CONSTRAINT FK_enseigne_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE enseigne ADD CONSTRAINT FK_enseigne_id_matiere FOREIGN KEY (id_matiere) REFERENCES Matiere(id_matiere);
+ALTER TABLE donne ADD CONSTRAINT FK_donne_id_note FOREIGN KEY (id_note) REFERENCES note(id_note);
+ALTER TABLE donne ADD CONSTRAINT FK_donne_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE calcule ADD CONSTRAINT FK_calcule_id_prof FOREIGN KEY (id_prof) REFERENCES Professeur(id_prof);
+ALTER TABLE calcule ADD CONSTRAINT FK_calcule_id_constante FOREIGN KEY (id_constante) REFERENCES Constantes(id_constante);
