@@ -58,7 +58,7 @@
                             <img src="../src/img/Formation_files//drop.jpg"></a>
                         </td>
                         <td>
-                            <a href="file:///C:/wamp64/www/SiteMemoire/modification_formation.php?id_formation=1462813362"
+                            <a href="modif_matiere.html"
                             onclick="if(!confirm(&quot;voulez modiffier cette matiere : 3 ?&quot;))return false;">
                             <img src="../src/img/Formation_files//brop.png"></a>
                         </td>
@@ -73,7 +73,7 @@
                             <img src="../src/img/Formation_files/drop.jpg"></a>
                         </td>
                         <td>
-                            <a href="file:///C:/wamp64/www/SiteMemoire/modification_formation.php?id_formation=1489500837"
+                            <a href="modif_matiere.html"
                             onclick="if(!confirm(&quot;voulez modiffier cette matiere : 8 ?&quot;))return false;">
                             <img src="../src/img/Formation_files/brop.png"></a>
                         </td>
@@ -81,72 +81,13 @@
 
                     </tr>
                     <tr align="left">
-                        <td colspan="5"><a href="file:///C:/wamp64/www/Formation/formulaire_formation.php?id_admin=1"
-                          onclick="if(!confirm(&quot;voulez vous Ajouter cette matiere ?&quot;))return false;">Ajouter nouvelle matiere</a>
+                        <td colspan="5"><button onclick="location.href = 'ajout_matiere.html' "
+                        id="myButton" class="float-left submit-button" >Ajouter Matiere</button>
                         </td>
                     </tr>
                 </tbody>
             </table><br>
         </div>
-
-                <div class="tab2">
-                    <!--2eme tableau  -->
-                    <h4>Calculer le cout d' une formation</h4>
-                    <table>
-
-                        <input type="hidden" name="id_admin" value="1">
-                        <tbody>
-                            <tr align="center">
-                            </tr>
-      <tr>
-      <td>
-      <label for="Nom_matier">Nom matiere</label>
-      </td>
-      <td><input type="text" name="credit"></td>
-      </tr>
-      <tr>
-      <td>
-      <label for="credit">credit</label>
-      </td>
-      <td>
-      <input type="text" name="eff_max_td">
-      </td>
-      </tr>
-
-      <tr>
-      <td>
-      <label for="eff_cm">Effectif CM</label>
-      </td>
-      <td><input type="text" name="eff_max_tp"></td>
-      </tr>
-      <tr>
-      <td>
-      <label for="eff_td">Effectif TD</label>
-      </td>
-      <td>
-      <input type="text" name="cout_horaire_cm">
-      </td>
-      </tr>
-      <tr>
-      <td>
-      <label for="eff_tp">Effectif TP</label>
-      </td>
-      <td>
-      <input type="text" name="cout_horaire_td">
-      </td>
-      </tr>
-
-      <tr class "buttom"="">
-      <td colspan="2">
-      <input type="submit" name="val_form_const" value="Valider">
-      </td>
-      </tr>
-
-
-  </tbody>
-  </table>
-  </div>
-
 
   </div>
 
