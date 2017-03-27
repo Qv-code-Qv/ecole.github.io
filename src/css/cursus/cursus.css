@@ -1,7 +1,9 @@
 body, html{
     /*margin: 0;*/
     padding: 0;
-    background-color: #e1e1e1;
+background-color: #797B7B;
+  /*background-color: #582900;*/
+;
 }
 /*div fond blanc*/
  #fond_blanc{
@@ -17,8 +19,9 @@ body, html{
 
  /*Fond gris claire*/
   #right {
+    background-color: #e1e1e1;
     padding-top: 2%;
-    background-color: #9a9697;
+
     margin-left: 5%;
     margin-right: 5%;
   margin-top:inherit;
@@ -35,7 +38,8 @@ a, h2, h3, h4, h5, h6, p, footer{
 }
 }
 h1{
-  color: #fff;
+  color: red;
+  background-color: red;
 }
 /*Connexion Deconnexion*/
 .preHeader{
