@@ -167,8 +167,9 @@ background-color: white;
 /*agenda*/
 
 #calendar{
+padding: 8%;
 align:center;
-margin:auto 0;
+margin:auto ;
 border: 0 ;
 width : 800px;
 height: 400px;
