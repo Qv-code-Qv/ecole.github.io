@@ -36,10 +36,10 @@ a, h2, h3, h4, h5, h6, p, footer{
     color: #4e4e4e;
     text-decoration: none;
 }
-}
+
 h1{
-  color: red;
-  background-color: red;
+  color: black;
+
 }
 /*Connexion Deconnexion*/
 .preHeader{
