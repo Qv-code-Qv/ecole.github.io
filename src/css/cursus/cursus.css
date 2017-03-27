@@ -161,6 +161,21 @@ background-color: white;
     /* padding-top: 5px;*/
 }
 
+/*agenda*/
+
+#calendar{
+align:center;
+margin:auto 0;
+border: 0 ;
+width : 800px;
+height: 400px;
+frameborder:0;
+scrolling:yes;
+}
+
+
+
+
  h3 {
    background-color: #7da7d9 ;
 
