@@ -50,6 +50,8 @@
                         <td id="cellule"> Date </td>
                         <td id="cellule"> Salle </td>
                         <td id="cellule"> Document </td>
+                        <td id="cellule"> Modifier </td>
+                        <td id="cellule"> Supprimer </td>
                     </tr>
                     <tr align="center">
                         <td>Lepage</td>
@@ -59,6 +61,14 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td><a href="modif_colle.html"
+                        onclick="if(!confirm(&quot;voulez modiffier cette colle :  ?&quot;))return false;">
+                        <img src="../src/img/Formation_files//brop.png"></a></td>
+                        <td>
+                            <a href="file:///C:/wamp64/www/SiteMemoire/delete_formation_admin.php?id_formation=1462813362"
+                            onclick="if(!confirm(&quot;voulez supprimer cette colle ?&quot;))return false;">
+                            <img src="../src/img/Formation_files//drop.jpg"></a>
+                        </td>
                     </tr>
                     <tr align="center">
                         <td>Amirouche</td>
@@ -70,9 +80,17 @@
                         </td>
                         <td></td>
                         <td></td>
+                        <td><a href="modif_colle.html"
+                        onclick="if(!confirm(&quot;voulez modiffier cette colle :  ?&quot;))return false;">
+                        <img src="../src/img/Formation_files//brop.png"></a></td>
+                        <td>
+                            <a href="file:///C:/wamp64/www/SiteMemoire/delete_formation_admin.php?id_formation=1462813362"
+                            onclick="if(!confirm(&quot;voulez supprimer cette colle ?&quot;))return false;">
+                            <img src="../src/img/Formation_files//drop.jpg"></a>
+                        </td>
                     </tr>
                     <tr align="left">
-                        <td colspan="5"><button onclick="location.href = 'ajout_colle.html' " 
+                        <td colspan="5"><button onclick="location.href = 'ajout_colle.html' "
                         id="myButton" class="float-left submit-button" >Ajouter horraire</button>
                         </td>
                     </tr>
