@@ -2,6 +2,7 @@ Drop DATABASE univ;
 CREATE  DATABASE univ;
 
 USE UNIV;
+ALTER DATABASE univ CONVERT TO CHARACTER SET utf8;
 
 #------------------------------------------------------------
 #        Script MySQL.
