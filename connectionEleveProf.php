@@ -30,7 +30,7 @@ else
 
         echo 'Vous etes connecte !';
 
-        header('refresh:3;');
+        //header('refresh:3;');
         exit();
     }
 
