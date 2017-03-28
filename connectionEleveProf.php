@@ -9,9 +9,9 @@ $login=$_POST['login'];
 
 // Vérification des identifiants
 $req = $bdd->prepare('SELECT * FROM Eleve INNER JOIN prof
-on eleve.idprof = prof.idprof WHERE Login  = :login AND  Mot_De_Passe = :password');
+on eleve.idprof = prof.idprof WHERE nom  = :nom AND  Mot_De_Passe = :password');
 $req->execute(array(
-'login' => $login,
+'nom' => $nom,
 'password' => $password));
 
 $resultat = $req->fetch();
