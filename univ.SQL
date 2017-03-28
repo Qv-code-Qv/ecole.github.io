@@ -27,7 +27,8 @@ CREATE TABLE formation(
 #------------------------------------------------------------
 
 CREATE TABLE Professeur(
-        nom_prof    Varchar (25) ,
+        nom    Varchar (25) ,
+        Mot_De_Passe int(35),
         id_prof     int (11) Auto_increment  NOT NULL ,
         nom_form    Varchar (25) ,
         prenom_prof Varchar (25) ,
@@ -130,7 +131,8 @@ CREATE TABLE Salle(
 
 CREATE TABLE Eleve(
         id_eleve     int (11) Auto_increment  NOT NULL ,
-        nom_eleve    Varchar (25) ,
+        Mot_De_Passe int(35),
+        nom  Varchar (25) ,
         prenom_eleve Varchar (25) ,
         date_naisseE Date ,
         date_debut   Date ,
